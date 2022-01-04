@@ -67,7 +67,11 @@ public class CauHoiServiceImpl implements CauHoiService {
 
     @Override
     public CauHoiDTO themCauHoi(CauHoiDTO cauHoiDTO) {
+        TaiKhoanEntity taiKhoanEntity = taiKhoanRepository.getById(cauHoiDTO.getMaTaiKhoan());
+        MonHocEntity monHocEntity = monHocRepository.getById(cauHoiDTO.getMaMonHoc());
         CauHoiEntity saveCauHoiOTD = cauHoiRepository.save(cauHoiDTO.toEntity());
+        saveCauHoiOTD.setTaiKhoan_CH(taiKhoanEntity);
+        saveCauHoiOTD.setMonHoc(monHocEntity);
         return new CauHoiDTO(saveCauHoiOTD);
     }
 

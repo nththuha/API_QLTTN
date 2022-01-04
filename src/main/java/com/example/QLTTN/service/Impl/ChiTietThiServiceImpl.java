@@ -3,9 +3,11 @@ package com.example.QLTTN.service.Impl;
 import com.example.QLTTN.dto.ChiTietThiDTO;
 import com.example.QLTTN.entity.ChiTietThiEntity;
 import com.example.QLTTN.entity.MonHocEntity;
+import com.example.QLTTN.entity.TaiKhoanEntity;
 import com.example.QLTTN.exception.NotFoundException;
 import com.example.QLTTN.repository.ChiTietThiRepository;
 import com.example.QLTTN.repository.MonHocRepository;
+import com.example.QLTTN.repository.TaiKhoanRepository;
 import com.example.QLTTN.service.ChiTietThiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,12 @@ import java.util.stream.Collectors;
 public class ChiTietThiServiceImpl implements ChiTietThiService {
     @Autowired
     ChiTietThiRepository chiTietThiRepository;
+
+    @Autowired
+    TaiKhoanRepository taiKhoanRepository;
+
+    @Autowired
+    MonHocRepository monHocRepository;
 
     @Override
     public List<ChiTietThiDTO> getDSChiTietThi() {
@@ -32,7 +40,11 @@ public class ChiTietThiServiceImpl implements ChiTietThiService {
 
     @Override
     public ChiTietThiDTO themChiTietThi(ChiTietThiDTO chiTietThiDTO) {
+        TaiKhoanEntity taiKhoanEntity = taiKhoanRepository.getById(chiTietThiDTO.getMaTaiKhoan());
+        MonHocEntity monHocEntity = monHocRepository.getById(chiTietThiDTO.getMaMonHoc());
         ChiTietThiEntity saveChiTietThiDTO = chiTietThiRepository.save(chiTietThiDTO.toEntity());
+        saveChiTietThiDTO.setMonHoc(monHocEntity);
+        saveChiTietThiDTO.setTaiKhoan_CTT(taiKhoanEntity);
         return new ChiTietThiDTO(saveChiTietThiDTO);
     }
 }

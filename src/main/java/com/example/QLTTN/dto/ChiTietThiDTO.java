@@ -21,16 +21,20 @@ public class ChiTietThiDTO {
 
     private double diem;
 
-    private TaiKhoanEntity taiKhoan_CTT = new TaiKhoanEntity();
+    private String maTaiKhoan;
 
-    private MonHocEntity monHoc = new MonHocEntity();
+    //private TaiKhoanEntity taiKhoan_CTT = new TaiKhoanEntity();
+
+    private String maMonHoc;
+
+    //private MonHocEntity monHoc = new MonHocEntity();
 
     public ChiTietThiDTO (ChiTietThiEntity chiTietThiEntity){
         this.idCTT = chiTietThiEntity.getIdCTT();
         this.diem = chiTietThiEntity.getDiem();
         this.ngayThi = chiTietThiEntity.getNgayThi();
-        this.monHoc = chiTietThiEntity.getMonHoc();
-        this.taiKhoan_CTT = chiTietThiEntity.getTaiKhoan_CTT();
+        this.maMonHoc = chiTietThiEntity.getMonHoc().getMaMonHoc();
+        this.maTaiKhoan = chiTietThiEntity.getTaiKhoan_CTT().getMaTaiKhoan();
     }
 
     public ChiTietThiEntity toEntity(){
@@ -40,8 +44,6 @@ public class ChiTietThiDTO {
         }
         chiTietThiEntity.setNgayThi(this.ngayThi);
         chiTietThiEntity.setDiem(this.diem);
-        chiTietThiEntity.setMonHoc(this.monHoc);
-        chiTietThiEntity.setTaiKhoan_CTT(this.taiKhoan_CTT);
         return chiTietThiEntity;
     }
 }
