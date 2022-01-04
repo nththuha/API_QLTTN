@@ -37,9 +37,13 @@ public class CauHoiDTO {
 
     private String luaChon;
 
-    private TaiKhoanEntity taiKhoan_CH = new TaiKhoanEntity();
+    private String maTaiKhoan;
 
-    private MonHocEntity monHoc = new MonHocEntity();
+    //private TaiKhoanEntity taiKhoan_CH = new TaiKhoanEntity();
+
+    //private MonHocEntity monHoc = new MonHocEntity();
+
+    private String maMonHoc;
 
     public CauHoiDTO (CauHoiEntity cauHoiEntity){
         this.idCH = cauHoiEntity.getIdCH();
@@ -50,8 +54,10 @@ public class CauHoiDTO {
         this.noiDung = cauHoiEntity.getNoiDung();
         this.luaChon = cauHoiEntity.getLuaChon();
         this.dapAn = cauHoiEntity.getDapAn();
-        this.taiKhoan_CH =  cauHoiEntity.getTaiKhoan_CH();
-        this.monHoc = cauHoiEntity.getMonHoc();
+        //this.taiKhoan_CH =  cauHoiEntity.getTaiKhoan_CH();
+        this.maTaiKhoan = cauHoiEntity.getTaiKhoan_CH().getMaTaiKhoan();
+        //this.monHoc = cauHoiEntity.getMonHoc();
+        this.maMonHoc = cauHoiEntity.getMonHoc().getMaMonHoc();
     }
 
     public CauHoiEntity toEntity(){
@@ -65,8 +71,8 @@ public class CauHoiDTO {
         cauHoiEntity.setD(this.d);
         cauHoiEntity.setNoiDung(this.noiDung);
         cauHoiEntity.setDapAn(this.dapAn);
-        cauHoiEntity.setTaiKhoan_CH(this.getTaiKhoan_CH());
-        cauHoiEntity.setMonHoc(this.monHoc);
+        //cauHoiEntity.setTaiKhoan_CH(this.getTaiKhoan_CH());
+        //cauHoiEntity.setMonHoc(this.monHoc);
         return cauHoiEntity;
     }
 }

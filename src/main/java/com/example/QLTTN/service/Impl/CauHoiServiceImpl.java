@@ -73,8 +73,8 @@ public class CauHoiServiceImpl implements CauHoiService {
 
     @Override
     public CauHoiDTO suaCauHoi(CauHoiDTO cauHoiDTO) {
-        TaiKhoanEntity taiKhoanEntity = taiKhoanRepository.getById(cauHoiDTO.getTaiKhoan_CH().getMaTaiKhoan());
-        MonHocEntity monHocEntity = monHocRepository.getById(cauHoiDTO.getMonHoc().getMaMonHoc());
+        TaiKhoanEntity taiKhoanEntity = taiKhoanRepository.getById(cauHoiDTO.getMaTaiKhoan());
+        MonHocEntity monHocEntity = monHocRepository.getById(cauHoiDTO.getMaMonHoc());
         CauHoiEntity cauHoiEntity = cauHoiRepository.findById(cauHoiDTO.getIdCH()).orElseThrow(() -> new NotFoundException("Câu hỏi " + cauHoiDTO.getIdCH() + " không tồn tại!"));
         cauHoiEntity.setA(cauHoiDTO.getA());
         cauHoiEntity.setB(cauHoiDTO.getB());
