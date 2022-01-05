@@ -22,11 +22,9 @@ public class ChiTietThiDTO {
     private double diem;
 
     private String maTaiKhoan;
-
     //private TaiKhoanEntity taiKhoan_CTT = new TaiKhoanEntity();
 
     private String maMonHoc;
-
     //private MonHocEntity monHoc = new MonHocEntity();
 
     public ChiTietThiDTO (ChiTietThiEntity chiTietThiEntity){

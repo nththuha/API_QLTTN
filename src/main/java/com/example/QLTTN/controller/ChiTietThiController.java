@@ -10,23 +10,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/chitietthi")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ChiTietThiController {
     @Autowired
     private ChiTietThiService chiTietThiService;
 
-    @GetMapping("/chitietthi")
+    @GetMapping("")
     public List<ChiTietThiDTO> layDSChiTietThi() {
         return chiTietThiService.getDSChiTietThi();
     }
 
-    @GetMapping("/chitietthi/{maMonHoc}")
+    @GetMapping("/{maMonHoc}")
     public List<ChiTietThiDTO> layDSChiTietThiTheoMon(@PathVariable String maMonHoc) {
         return chiTietThiService.getChiTietThiTheoMon(maMonHoc);
     }
 
-    @PostMapping("/chitietthi")
+    @PostMapping("")
     public ChiTietThiDTO themChiTietThi(@Valid @RequestBody ChiTietThiDTO chiTietThiDTO) {
         return chiTietThiService.themChiTietThi(chiTietThiDTO);
     }

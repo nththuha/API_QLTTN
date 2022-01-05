@@ -9,33 +9,33 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/monhoc")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class MonHocController {
     @Autowired
     private MonHocService monHocService;
 
-    @GetMapping("/monhoc")
+    @GetMapping("")
     public List<MonHocDTO> layDSMonHoc() {
         return monHocService.getDSMonHoc();
     }
 
-    @GetMapping("/monhoc/{maMonHoc}")
+    @GetMapping("/{maMonHoc}")
     public MonHocDTO layMonHoc(@PathVariable String maMonHoc) {
         return monHocService.layMonHoc(maMonHoc);
     }
 
-    @PostMapping("/monhoc")
+    @PostMapping("")
     public MonHocDTO themMonHoc(@Valid @RequestBody MonHocDTO monHocDTO) {
         return monHocService.themMonHoc(monHocDTO);
     }
 
-    @PutMapping("/monhoc")
+    @PutMapping("")
     public MonHocDTO suaMonHoc(@Valid @RequestBody MonHocDTO monHocDTO) {
         return monHocService.suaMonhoc(monHocDTO);
     }
 
-    @DeleteMapping("/monhoc/{maMonHoc}")
+    @DeleteMapping("/{maMonHoc}")
     public void xoaMonHoc(@PathVariable String maMonHoc) {
         monHocService.xoaMonHoc(maMonHoc);
     }

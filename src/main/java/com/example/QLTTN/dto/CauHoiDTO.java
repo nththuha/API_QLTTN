@@ -37,12 +37,10 @@ public class CauHoiDTO {
 
     private String luaChon;
 
+    //private TaiKhoanEntity taiKhoan_CH = new TaiKhoanEntity();
     private String maTaiKhoan;
 
-    //private TaiKhoanEntity taiKhoan_CH = new TaiKhoanEntity();
-
     //private MonHocEntity monHoc = new MonHocEntity();
-
     private String maMonHoc;
 
     public CauHoiDTO (CauHoiEntity cauHoiEntity){

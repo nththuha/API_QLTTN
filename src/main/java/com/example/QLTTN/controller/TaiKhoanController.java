@@ -9,33 +9,33 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/taikhoan")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class TaiKhoanController {
     @Autowired
     private TaiKhoanService taiKhoanService;
 
-    @GetMapping("/taikhoan")
+    @GetMapping("")
     public List<TaiKhoanDTO> layDSTheoLoai(@RequestParam(value = "loai")String loai){
         return taiKhoanService.getTaiKhoanTheoLoai(loai);
     }
 
-    @GetMapping("/taikhoan/{maTaiKhoan}")
+    @GetMapping("/{maTaiKhoan}")
     public TaiKhoanDTO layTaiKhoan(@PathVariable String maTaiKhoan){
         return taiKhoanService.layTaiKhoan(maTaiKhoan);
     }
 
-    @PostMapping("/taikhoan")
+    @PostMapping("")
     public TaiKhoanDTO themTaiKhoan(@Valid @RequestBody TaiKhoanDTO taiKhoanDTO) {
         return taiKhoanService.themTaiKhoan(taiKhoanDTO);
     }
 
-    @PutMapping("/taikhoan")
+    @PutMapping("")
     public TaiKhoanDTO suaTaiKhoan(@Valid @RequestBody TaiKhoanDTO taiKhoanDTO) {
         return taiKhoanService.suaTaiKhoan(taiKhoanDTO);
     }
 
-    @DeleteMapping("/taikhoan/{maTaiKhoan}")
+    @DeleteMapping("/{maTaiKhoan}")
     public void xoaTaiKhoan(@PathVariable String maTaiKhoan) {
         taiKhoanService.xoaTaiKhoan(maTaiKhoan);
     }

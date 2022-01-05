@@ -9,18 +9,18 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/cauhoi")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class CauHoiController {
     @Autowired
     private CauHoiService cauHoiService;
 
-    @GetMapping("/cauhoi")
+    @GetMapping("")
     public List<CauHoiDTO> layDSCauHoi() {
         return cauHoiService.getDSCauHoi();
     }
 
-    @GetMapping("/cauhoi/danhsach/{maMonHoc}")
+    @GetMapping("/danhsach/{maMonHoc}")
     public List<CauHoiDTO> layDSCauHoiTheoMon(@PathVariable String maMonHoc, @RequestParam("loai") String loai) {
         if(loai.equals("All")) {
             return cauHoiService.getDSCauHoiTheoMon(maMonHoc);
@@ -30,22 +30,22 @@ public class CauHoiController {
         }
     }
 
-    @GetMapping("/cauhoi/{idCH}")
+    @GetMapping("/{idCH}")
     public CauHoiDTO layCauHoi(@PathVariable Integer idCH){
         return cauHoiService.layCauHoi(idCH);
     }
 
-    @PostMapping("/cauhoi")
+    @PostMapping("")
     public CauHoiDTO themCauHoi(@Valid @RequestBody CauHoiDTO cauHoiDTO) {
         return cauHoiService.themCauHoi(cauHoiDTO);
     }
 
-    @PutMapping("/cauhoi")
+    @PutMapping("")
     public CauHoiDTO suaCauHoi(@Valid @RequestBody CauHoiDTO cauHoiDTO){
         return cauHoiService.suaCauHoi(cauHoiDTO);
     }
 
-    @DeleteMapping("/cauhoi/{idCH}")
+    @DeleteMapping("/{idCH}")
     public void xoaCauHoi(@PathVariable Integer idCH) {
         cauHoiService.xoaCauHoi(idCH);
     }

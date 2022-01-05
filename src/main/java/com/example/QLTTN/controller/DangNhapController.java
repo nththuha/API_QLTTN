@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/dangnhap")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class DangNhapController {
     @Autowired
     TaiKhoanService taiKhoanService;
 
-    @GetMapping("/dangnhap")
+    @GetMapping("")
     public TaiKhoanDTO kiemTraDangNhap(@Valid @RequestBody TaiKhoanDTO taiKhoanDTO){
         return taiKhoanService.kiemTraDangNhap(taiKhoanDTO);
     }
