@@ -14,7 +14,7 @@ public class DangNhapController {
     @Autowired
     TaiKhoanService taiKhoanService;
 
-    @GetMapping("")
+    @PostMapping("")
     public TaiKhoanDTO kiemTraDangNhap(@Valid @RequestBody TaiKhoanDTO taiKhoanDTO){
         return taiKhoanService.kiemTraDangNhap(taiKhoanDTO);
     }
