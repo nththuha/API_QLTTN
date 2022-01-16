@@ -15,7 +15,7 @@ public class DangNhapController {
     TaiKhoanService taiKhoanService;
 
     @GetMapping("")
-    public TaiKhoanDTO kiemTraDangNhap(@RequestBody TaiKhoanDTO taiKhoanDTO){
+    public TaiKhoanDTO kiemTraDangNhap(@Valid @RequestBody TaiKhoanDTO taiKhoanDTO){
         return taiKhoanService.kiemTraDangNhap(taiKhoanDTO);
     }
 }
