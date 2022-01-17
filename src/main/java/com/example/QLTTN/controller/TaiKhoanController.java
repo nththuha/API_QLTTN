@@ -20,7 +20,7 @@ public class TaiKhoanController {
         return taiKhoanService.getTaiKhoanTheoLoai(loai);
     }
 
-    @GetMapping("")
+    @GetMapping("/danhsach")
     public List<TaiKhoanDTO> layDSTaiKhoan(){
         return taiKhoanService.getDSTaiKhoan();
     }
