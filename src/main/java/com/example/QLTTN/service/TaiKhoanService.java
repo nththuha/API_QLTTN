@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface TaiKhoanService {
     public List<TaiKhoanDTO> getTaiKhoanTheoLoai(String loai);
+    public List<TaiKhoanDTO> getDSTaiKhoan();
     public void xoaTaiKhoan(String maTaiKhoan);
     public TaiKhoanDTO themTaiKhoan(TaiKhoanDTO taiKhoanDTO);
     public TaiKhoanDTO suaTaiKhoan(TaiKhoanDTO taiKhoanDTO);

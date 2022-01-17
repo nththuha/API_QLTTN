@@ -25,6 +25,12 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
     }
 
     @Override
+    public List<TaiKhoanDTO> getDSTaiKhoan() {
+        List<TaiKhoanEntity> dSTaiKhoan = taiKhoanRepository.findAll();
+        return dSTaiKhoan.stream().map(TaiKhoanDTO::new).collect(Collectors.toList());
+    }
+
+    @Override
     public void xoaTaiKhoan(String maTaiKhoan) {
         taiKhoanRepository.deleteById(maTaiKhoan);
     }

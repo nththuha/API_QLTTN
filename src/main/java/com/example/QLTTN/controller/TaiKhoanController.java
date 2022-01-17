@@ -20,6 +20,11 @@ public class TaiKhoanController {
         return taiKhoanService.getTaiKhoanTheoLoai(loai);
     }
 
+    @GetMapping("")
+    public List<TaiKhoanDTO> layDSTaiKhoan(){
+        return taiKhoanService.getDSTaiKhoan();
+    }
+
     @GetMapping("/{maTaiKhoan}")
     public TaiKhoanDTO layTaiKhoan(@PathVariable String maTaiKhoan){
         return taiKhoanService.layTaiKhoan(maTaiKhoan);
