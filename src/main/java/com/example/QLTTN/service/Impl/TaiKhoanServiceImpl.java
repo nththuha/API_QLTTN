@@ -8,6 +8,7 @@ import com.example.QLTTN.service.TaiKhoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -19,9 +20,20 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
 
 
     @Override
-    public List<TaiKhoanDTO> getTaiKhoanTheoLoai(String loai) {
+    public List<TaiKhoanDTO> getTaiKhoanTheoLoai(String loai, String ten) {
         List<TaiKhoanEntity> DSTaiKhoan = taiKhoanRepository.findByLoai(loai);
-        return DSTaiKhoan.stream().map(TaiKhoanDTO::new).collect(Collectors.toList());
+        if(ten.equals("#")){
+            return DSTaiKhoan.stream().map(TaiKhoanDTO::new).collect(Collectors.toList());
+        }
+        else{
+            List<TaiKhoanEntity> DS = new ArrayList<>();
+            for (TaiKhoanEntity e: DSTaiKhoan) {
+                if(e.getTen().contains(ten)){
+                    DS.add(e);
+                }
+            }
+            return DS.stream().map(TaiKhoanDTO::new).collect(Collectors.toList());
+        }
     }
 
     @Override

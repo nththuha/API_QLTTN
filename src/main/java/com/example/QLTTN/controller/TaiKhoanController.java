@@ -15,9 +15,9 @@ public class TaiKhoanController {
     @Autowired
     private TaiKhoanService taiKhoanService;
 
-    @GetMapping("")
-    public List<TaiKhoanDTO> layDSTheoLoai(@RequestParam(value = "loai")String loai){
-        return taiKhoanService.getTaiKhoanTheoLoai(loai);
+    @GetMapping("") // truyền loại và tên, nếu không có tên thì tên để #
+    public List<TaiKhoanDTO> layDSTheoLoai(@RequestParam(value = "loai")String loai, @RequestParam(value = "ten")String ten){
+        return taiKhoanService.getTaiKhoanTheoLoai(loai, ten);
     }
 
     @GetMapping("/danhsach")
