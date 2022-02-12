@@ -42,9 +42,10 @@ public class ChiTietThiServiceImpl implements ChiTietThiService {
     public ChiTietThiDTO themChiTietThi(ChiTietThiDTO chiTietThiDTO) {
         TaiKhoanEntity taiKhoanEntity = taiKhoanRepository.getById(chiTietThiDTO.getMaTaiKhoan());
         MonHocEntity monHocEntity = monHocRepository.getById(chiTietThiDTO.getMaMonHoc());
-        ChiTietThiEntity saveChiTietThiDTO = chiTietThiRepository.save(chiTietThiDTO.toEntity());
-        saveChiTietThiDTO.setMonHoc(monHocEntity);
-        saveChiTietThiDTO.setTaiKhoan_CTT(taiKhoanEntity);
+        ChiTietThiEntity chiTietThiTemp = chiTietThiDTO.toEntity();
+        chiTietThiTemp.setMonHoc(monHocEntity);
+        chiTietThiTemp.setTaiKhoan_CTT(taiKhoanEntity);
+        ChiTietThiEntity saveChiTietThiDTO = chiTietThiRepository.save(chiTietThiTemp);
         return new ChiTietThiDTO(saveChiTietThiDTO);
     }
 }
