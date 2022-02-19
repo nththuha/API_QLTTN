@@ -23,7 +23,11 @@ public class ChiTietThiDTO {
 
     private String maTaiKhoan;
 
+    private String hoTen;
+
     private String maMonHoc;
+
+    private String tenMonHoc;
 
     public ChiTietThiDTO (ChiTietThiEntity chiTietThiEntity){
         this.idCTT = chiTietThiEntity.getIdCTT();
@@ -31,6 +35,8 @@ public class ChiTietThiDTO {
         this.ngayThi = chiTietThiEntity.getNgayThi();
         this.maMonHoc = chiTietThiEntity.getMonHoc().getMaMonHoc();
         this.maTaiKhoan = chiTietThiEntity.getTaiKhoan_CTT().getMaTaiKhoan();
+        this.hoTen = chiTietThiEntity.getTaiKhoan_CTT().getHo() + " " + chiTietThiEntity.getTaiKhoan_CTT().getTen();
+        this.tenMonHoc = chiTietThiEntity.getMonHoc().getTenMonHoc();
     }
 
     public ChiTietThiEntity toEntity(){
